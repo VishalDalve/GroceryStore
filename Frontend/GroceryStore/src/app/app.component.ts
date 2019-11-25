@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,41 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GroceryStore';
+
+  constructor(public dialog: MatDialog) {
+
+  }
+
+  openDialog(event: String): void {
+    if (event === 'login') {
+      this.openLoginDialog();
+    } else {
+      this.openSignupDialog();
+    }
+  }
+
+  openLoginDialog(): void {
+    // console.log(event);
+    const dialogRef = this.dialog.open(LoginComponent, {
+      width: '250px',
+      data: { name: 'Login', animal: 'Hi' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
+  }
+
+  openSignupDialog(): void {
+    const dialogRef = this.dialog.open(SignupComponent, {
+      width: '250px',
+      data: { name: 'Signup', animal: 'Hi' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The Signup dialog was closed');
+
+    });
+  }
 }

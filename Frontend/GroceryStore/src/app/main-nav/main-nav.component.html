@@ -3,8 +3,8 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Login</a>
-      <a mat-list-item href="#">Register / Signup</a>
+      <a mat-list-item (click)="dialogOpened('login');drawer.toggle()">Login</a>
+      <a mat-list-item (click)="dialogOpened('signup');drawer.toggle()">Register / Signup</a>
       <a mat-list-item href="#">MyCart</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -16,8 +16,8 @@
       </button>
       <span>GroceryStore</span>
       <span class="spacer"></span>
-      <a mat-list-item href="#">Login</a>
-      <a mat-list-item href="#">Register / Signup</a>
+      <a mat-list-item (click)="dialogOpened('login')">Login</a>
+      <a mat-list-item (click)="dialogOpened('signup')">Register / Signup</a>
       <a mat-list-item href="#">MyCart</a>
     </mat-toolbar>
     <!-- Add Content Here -->
