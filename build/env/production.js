@@ -3,8 +3,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.envConfig = {
     database: {
-        MONGODB_URI: 'mongodb://production_uri/',
-        MONGODB_DB_MAIN: 'hotbot_prod_db'
+        MONGODB_URI: 'mongodb://vd30992:ferariiloveu9229@ds061797.mlab.com:61797/grocerydb',
+        MONGODB_DB_MAIN: 'grocerydb'
+        // MONGODB_URI: 'mongodb://production_uri/',
+        // MONGODB_DB_MAIN: 'hotbot_prod_db'
     },
     emailCredentials: {
         host: 'mail.vinove.com',
