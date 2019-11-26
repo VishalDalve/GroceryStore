@@ -3,8 +3,8 @@
 export const envConfig: any = {
     database: {
 
-        MONGODB_URI: 'mongodb://vd30992:ferariiloveu9229@ds061797.mlab.com:61797/grocerydb',
-        MONGODB_DB_MAIN: 'grocerydb'
+        MONGODB_URI: 'mongodb://vd30992:vd30992@ds061797.mlab.com:61797/grocerydb'
+        //MONGODB_DB_MAIN: 'grocerydb'
         // MONGODB_URI: 'mongodb://localhost:27017/',
         // MONGODB_DB_MAIN: 'hotbot_dev_db'
     },
