@@ -10,9 +10,15 @@ import { SignupComponent } from './signup/signup.component';
 })
 export class AppComponent {
   title = 'GroceryStore';
+  isLoggedIn = false;
+  userName = '';
 
   constructor(public dialog: MatDialog) {
 
+  }
+
+  loggedIn(authObj: string) {
+    this.isLoggedIn = true;
   }
 
   openDialog(event: String): void {

@@ -8,6 +8,9 @@ import { MaterialModule } from './imports/material.imports';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { LocalStorageService } from 'src/services/storage/local-storage.service';
+import { AuthService } from 'src/services/auth/auth.service';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -23,10 +26,16 @@ import { SignupComponent } from './signup/signup.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     ...MaterialModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [
+    LocalStorageService,
+    AuthService
+  ],
+  bootstrap: [
+    AppComponent
+  ],
   entryComponents: [
     LoginComponent,
     SignupComponent
