@@ -8,7 +8,8 @@ var connectOptions = {
     reconnectTries: Number.MAX_VALUE,
     reconnectInterval: 1000
 };
-var MONGO_URI = "" + index_1.default.envConfig.database.MONGODB_URI + index_1.default.envConfig.database.MONGODB_DB_MAIN;
+// const MONGO_URI: string = `${config.envConfig.database.MONGODB_URI}${config.envConfig.database.MONGODB_DB_MAIN}`;
+var MONGO_URI = "" + index_1.default.envConfig.database.MONGODB_URI;
 exports.db = mongoose.createConnection(MONGO_URI, connectOptions);
 // handlers
 exports.db.on('connecting', function () {

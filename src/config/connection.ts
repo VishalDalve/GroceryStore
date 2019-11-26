@@ -14,7 +14,9 @@ const connectOptions: connectOptions = {
     reconnectInterval: 1000
 };
 
-const MONGO_URI: string = `${config.envConfig.database.MONGODB_URI}${config.envConfig.database.MONGODB_DB_MAIN}`;
+// const MONGO_URI: string = `${config.envConfig.database.MONGODB_URI}${config.envConfig.database.MONGODB_DB_MAIN}`;
+const MONGO_URI: string = `${config.envConfig.database.MONGODB_URI}`;
+
 
 export const db: mongoose.Connection = mongoose.createConnection(MONGO_URI, connectOptions);
 
