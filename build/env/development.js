@@ -19,8 +19,8 @@ exports.envConfig = {
     JWT_SECRET: '1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX',
     EMAIL_SECRET: '0E6A48F765D0FFFFF6247FA80D748E615F91DD0C7431E4D9',
     PASS_SECRET: 'b31d032cfdcf47a399990a71e43c5d2a',
-    EMAIL_VERIFICATION_URL: "http://d4.iworklab.com:3100/api/v1/auth/verify/email",
+    EMAIL_VERIFICATION_URL: "https://groceryappa.herokuapp.com/api/v1/auth/verify/email",
     // RESET_PASSWORD_URL:"http://localhost:3100/api/v1/auth/reset"
-    RESET_PASSWORD_URL: "http://d4.iworklab.com:3100/resetPassword"
+    RESET_PASSWORD_URL: "https://groceryappa.herokuapp.com/resetPassword"
 };
 //# sourceMappingURL=development.js.map
