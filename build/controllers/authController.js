@@ -79,7 +79,7 @@ var AuthController = /** @class */ (function () {
                         return [4 /*yield*/, authService_1.default.newToken(user._id)];
                     case 2:
                         token = _a.sent();
-                        return [2 /*return*/, res.status(200).json({ "data": token, "user": { "_id": user._id, "name": user.name, "email": user.email } })];
+                        return [2 /*return*/, res.status(200).json({ "data": token, "user": { "_id": user._id, "name": user.name, "email": user.email, "role": user.role } })];
                     case 3:
                         e_1 = _a.sent();
                         return [2 /*return*/, res.status(500).json({ "message": e_1.message || message_1.Messages.ERROR_500 })];

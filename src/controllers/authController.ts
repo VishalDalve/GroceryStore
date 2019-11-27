@@ -55,7 +55,7 @@ class AuthController {
 
             //generate JWT token
             let token = await AuthService.newToken(user._id);
-            return res.status(200).json({"data": token, "user" :{"_id": user._id, "name": user.name, "email": user.email}})
+            return res.status(200).json({"data": token, "user" :{"_id": user._id, "name": user.name, "email": user.email, "role": user.role}})
 
         }  catch(e) {
                 return res.status(500).json({"message":e.message || Messages.ERROR_500})
