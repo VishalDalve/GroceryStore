@@ -8,6 +8,7 @@ var authMiddleware_1 = require("../config/authMiddleware");
 // const swaggerUi = require('swagger-ui-express');
 // const swaggerDocument = require('../swagger-doc/swagger-api-v1.json');
 var fileUpload_1 = require("../service/fileUpload");
+var path = require("path");
 var Routes = /** @class */ (function () {
     function Routes() {
     }
@@ -32,10 +33,10 @@ var Routes = /** @class */ (function () {
         }));
         //images
         server.app.use('/images', express.static('uploads'));
-        // server.app.use(express.static(path.join("/home/vishal.dalve/web/hotbot.d4.iworklab.com/public_html/HotbotFrontend", 'build')));
-        // server.app.get('*', (req:any, res:any) => {
-        //     res.sendFile(path.join("/home/vishal.dalve/web/hotbot.d4.iworklab.com/public_html/HotbotFrontend", 'build/index.html'));
-        //  });
+        server.app.use(express.static(path.join(__dirname, "../../Frontend/GroceryStore", 'dist')));
+        server.app.get('*', function (req, res) {
+            res.sendFile(path.join(__dirname, "../../Frontend/GroceryStore/", 'dist/GroceryStore/index.html'));
+        });
     };
     return Routes;
 }());

@@ -36,10 +36,10 @@ export default class Routes {
         //images
         server.app.use('/images', express.static('uploads'));
 
-        // server.app.use(express.static(path.join("/home/vishal.dalve/web/hotbot.d4.iworklab.com/public_html/HotbotFrontend", 'build')));
-        // server.app.get('*', (req:any, res:any) => {
-        //     res.sendFile(path.join("/home/vishal.dalve/web/hotbot.d4.iworklab.com/public_html/HotbotFrontend", 'build/index.html'));
-        //  });
+        server.app.use(express.static(path.join(__dirname, "../../Frontend/GroceryStore", 'dist')));
+        server.app.get('*', (req:any, res:any) => {
+            res.sendFile(path.join(__dirname, "../../Frontend/GroceryStore/", 'dist/GroceryStore/index.html'));
+         });
 
 
     }

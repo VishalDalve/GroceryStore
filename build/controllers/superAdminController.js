@@ -189,22 +189,19 @@ var SuperAdminController = /** @class */ (function () {
                         }
                         total = 0;
                         queryObj = { 'query': {} };
+                        queryObj['query']['isDeleted'] = false;
                         //queryObj['query']['$and: [ { role: { $eq: "USER" } }, { role: { $eq: "subadmin" } } ] }'];
-                        if (req.query.subadmin) {
-                            queryObj['query']['role'] = req.query.subadmin;
-                        }
-                        if (req.query.user) {
-                            queryObj['query']['role'] = req.query.user;
-                        }
+                        // if (req.query.subadmin) {
+                        //     queryObj['query']['role'] = req.query.subadmin;
+                        // }
+                        // if (req.query.user) {
+                        //     queryObj['query']['role'] = req.query.user;
+                        // }
                         if (!req.query.user && !req.query.subadmin) {
                             queryObj['query']['role'] = { $not: { $eq: "superadmin" } };
                         }
                         // queryObj['query']['role'] = "superadmin";
                         // queryObj['query']['role'] = "subadmin";
-                        queryObj['query']['isDeleted'] = false;
-                        if (req.query.platform) {
-                            queryObj['query']['platform'] = req.query.platform;
-                        }
                         if (req.query.email) {
                             queryObj['query']['email'] = req.query.email;
                         }
