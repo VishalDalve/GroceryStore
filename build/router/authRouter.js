@@ -15,7 +15,7 @@ var AuthRouter = /** @class */ (function () {
         this.router.post('/signup', authController_1.default.signUp);
         this.router.get('/verify/email/:token', authController_1.default.verifyEmail);
         this.router.post('/forgotPassword', authController_1.default.forgotPassword);
-        this.router.post('/reset/:token', authController_1.default.resetPassword);
+        this.router.post('/resetPassword/:token', authController_1.default.resetPassword);
     };
     return AuthRouter;
 }());
