@@ -4,7 +4,7 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item (click)="dialogOpened('login');drawer.toggle()" *ngIf="!isLoggedIn">Login</a>
-      <a mat-list-item *ngIf="isLoggedIn">Welcome Kunal</a>
+      <a mat-list-item *ngIf="isLoggedIn">Welcome {{userName}}</a>
       <a mat-list-item (click)="dialogOpened('signup');drawer.toggle()">Register / Signup</a>
       <a mat-list-item href="#">MyCart</a>
       <a mat-list-item *ngIf="isLoggedIn" (click)="onLogout();drawer.toggle()">Logout</a>
@@ -19,7 +19,7 @@
       <span>GroceryStore</span>
       <span class="spacer"></span>
       <a mat-list-item (click)="dialogOpened('login')" *ngIf="!isLoggedIn">Login</a>
-      <a *ngIf="isLoggedIn">Welcome Kunal</a>
+      <a *ngIf="isLoggedIn">Welcome {{userName}}</a>
       <a mat-list-item (click)="dialogOpened('signup')">Register / Signup</a>
       <a mat-list-item href="#">MyCart</a>
       <a mat-list-item *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>

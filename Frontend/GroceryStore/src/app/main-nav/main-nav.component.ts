@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/services/auth/auth.service';
+import { LocalStorageService } from 'src/services/storage/local-storage.service';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { AuthService } from 'src/services/auth/auth.service';
 export class MainNavComponent {
   @Output() openDialog = new EventEmitter();
   isLoggedIn = false;
+  userName = ''
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -20,9 +22,14 @@ export class MainNavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, public authService: AuthService) {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    public authService: AuthService,
+    private lStorage: LocalStorageService
+  ) {
     this.authService.isLoggedIn.subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
+      this.userName = this.lStorage.getStorageVal('userName');
       console.log(isLoggedIn)
     })
   }

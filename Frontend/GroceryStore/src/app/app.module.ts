@@ -11,7 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LocalStorageService } from 'src/services/storage/local-storage.service';
 import { AuthService } from 'src/services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -27,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     ...MaterialModule,
   ],
   providers: [
