@@ -52,7 +52,7 @@ const UserSchema: Schema = new Schema({
         this.updatedAt = now;
         this.isActive = true;
         this.role = this.role || Role.USER;
-        this.isVerified = false;
+        this.isVerified = true;
         this.isDeleted = false;
     }
     next();

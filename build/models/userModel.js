@@ -36,7 +36,7 @@ var UserSchema = new mongoose_1.Schema({
         this.updatedAt = now;
         this.isActive = true;
         this.role = this.role || userInterface_1.Role.USER;
-        this.isVerified = false;
+        this.isVerified = true;
         this.isDeleted = false;
     }
     next();
