@@ -12,7 +12,8 @@ import { LocalStorageService } from 'src/services/storage/local-storage.service'
 import { AuthService } from 'src/services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { LoaderComponent } from './UI/loader/loader.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     MainNavComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     ...MaterialModule,
   ],
   providers: [

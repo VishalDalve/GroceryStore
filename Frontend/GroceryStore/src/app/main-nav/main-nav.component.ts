@@ -40,6 +40,7 @@ export class MainNavComponent {
 
   onLogout() {
     this.authService.updateLoginStatus(false);
+    this.lStorage.clearStorage();
   }
 
 
