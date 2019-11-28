@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { REGEX } from '../util/constants';
 import { MustMatch } from '../util/validators/MustMatch.Validator';
+import { AuthService } from 'src/services/auth/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ToastmsgService } from 'src/services/toaster/toastmsg.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,15 +12,13 @@ import { MustMatch } from '../util/validators/MustMatch.Validator';
 })
 export class SignupComponent implements OnInit {
   public signupForm: FormGroup;
-  public signupDetail = {
-    email: '',
-    password: '',
-    cnfpassword: '',
-    name: '',
-    address: '',
-    contact: ''
-  }
-  constructor(private formBuilder: FormBuilder) { }
+  public loading = false;
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: AuthService,
+    public dialog: MatDialog,
+    private toast: ToastmsgService
+  ) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
@@ -33,6 +34,22 @@ export class SignupComponent implements OnInit {
       });
   }
 
-
+  onSignup() {
+    this.loading = true;
+    const param = { ...this.signupForm.value }
+    delete param.cnfpassword;
+    this.auth.postApiCall('auth/signup', param).subscribe((res) => {
+      console.log(res);
+      this.loading = false;
+      this.dialog.closeAll();
+      this.toast.success('You successfully signed up, Now please login to keep shopping');
+    },
+      error => {
+        this.loading = false;
+        this.dialog.closeAll();
+        console.log('Err =>', error);
+        this.toast.error('Something Went Wrong');
+      });
+  }
 
 }

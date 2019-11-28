@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/services/auth/auth.service';
 import { LocalStorageService } from 'src/services/storage/local-storage.service';
+import { ToastmsgService } from 'src/services/toaster/toastmsg.service';
 
 
 @Component({
@@ -25,13 +26,22 @@ export class MainNavComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     public authService: AuthService,
-    private lStorage: LocalStorageService
+    private lStorage: LocalStorageService,
+    private toast: ToastmsgService
   ) {
     this.authService.isLoggedIn.subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
       this.userName = this.lStorage.getStorageVal('userName');
-      console.log(isLoggedIn)
     })
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    if (this.lStorage.getStorageVal('userName')) {
+      this.isLoggedIn = true;
+      this.userName = this.lStorage.getStorageVal('userName');
+    }
   }
 
   dialogOpened(dialogName: string) {
@@ -41,6 +51,7 @@ export class MainNavComponent {
   onLogout() {
     this.authService.updateLoginStatus(false);
     this.lStorage.clearStorage();
+    this.toast.success('Logged out Successfully!')
   }
 
 

@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './UI/loader/loader.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastmsgService } from 'src/services/toaster/toastmsg.service';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     LocalStorageService,
-    AuthService
+    AuthService,
+    ToastmsgService
   ],
   bootstrap: [
     AppComponent
