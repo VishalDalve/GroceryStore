@@ -32,7 +32,7 @@ var Routes = /** @class */ (function () {
             res.send({ 'fileName': req.file.filename || '' });
         }));
         //images
-        server.app.use('/images', express.static('uploads'));
+        server.app.use('/uploads', express.static("uploads"));
         server.app.use(express.static(path.join(__dirname, "../../Frontend/GroceryStore/", 'dist/GroceryStore')));
         server.app.get('*', function (req, res) {
             res.sendFile(path.join(__dirname, "../../Frontend/GroceryStore/", 'dist/GroceryStore/index.html'));
