@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
       // }, 1000);
     }, error => {
       console.log('Err =>', error);
+      this.dialog.closeAll();
       this.toast.error('Something Went Wrong');
     }
     );

@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './UI/loader/loader.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastmsgService } from 'src/services/toaster/toastmsg.service';
+import { MyCartComponent } from './my-cart/my-cart.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ToastmsgService } from 'src/services/toaster/toastmsg.service';
     MainNavComponent,
     LoginComponent,
     SignupComponent,
-    LoaderComponent
+    LoaderComponent,
+    MyCartComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

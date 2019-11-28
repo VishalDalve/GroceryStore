@@ -6,7 +6,7 @@
       <a mat-list-item (click)="dialogOpened('login');drawer.toggle()" *ngIf="!isLoggedIn">Login</a>
       <a mat-list-item *ngIf="isLoggedIn">Welcome {{userName}}</a>
       <a mat-list-item (click)="dialogOpened('signup');drawer.toggle()">Register / Signup</a>
-      <a mat-list-item href="#">MyCart</a>
+      <a mat-list-item [routerLink]="['MyCart']" (click)="drawer.toggle()">MyCart</a>
       <a mat-list-item *ngIf="isLoggedIn" (click)="onLogout();drawer.toggle()">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -16,14 +16,14 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>GroceryStore</span>
+      <span [routerLink]="['']">GroceryStore</span>
       <span class="spacer"></span>
       <a mat-list-item (click)="dialogOpened('login')" *ngIf="!isLoggedIn">Login</a>
       <a *ngIf="isLoggedIn">Welcome {{userName}}</a>
       <a mat-list-item (click)="dialogOpened('signup')">Register / Signup</a>
-      <a mat-list-item href="#">MyCart</a>
+      <a mat-list-item [routerLink]="['MyCart']">MyCart</a>
       <a mat-list-item *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
