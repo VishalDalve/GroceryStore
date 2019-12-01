@@ -436,9 +436,15 @@ class SuperAdminController {
             if (!findplan)
                 res.status(404).send({ "message": Messages.ERROR_404 })
 
+                 //for product pic ---------    
+                if (req.file) { findplan.productPic = req.file.path; }
+
                 // finduser.firstname = req.body.firstname;
+                if (req.body.productName)
                 findplan.productName = req.body.productName;
+                if (req.body.price)
                 findplan.price = req.body.price;
+                if (req.body.ourPrice)
                 findplan.ourPrice = req.body.ourPrice;
                 
 

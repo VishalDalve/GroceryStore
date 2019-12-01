@@ -437,10 +437,17 @@ var SuperAdminController = /** @class */ (function () {
                         findplan = _a.sent();
                         if (!findplan)
                             res.status(404).send({ "message": message_1.Messages.ERROR_404 });
+                        //for product pic ---------    
+                        if (req.file) {
+                            findplan.productPic = req.file.path;
+                        }
                         // finduser.firstname = req.body.firstname;
-                        findplan.productName = req.body.productName;
-                        findplan.price = req.body.price;
-                        findplan.ourPrice = req.body.ourPrice;
+                        if (req.body.productName)
+                            findplan.productName = req.body.productName;
+                        if (req.body.price)
+                            findplan.price = req.body.price;
+                        if (req.body.ourPrice)
+                            findplan.ourPrice = req.body.ourPrice;
                         return [4 /*yield*/, productModel_1.default.findOneAndUpdate({ _id: req.body.planid }, findplan)];
                     case 3:
                         userupdate = _a.sent();
