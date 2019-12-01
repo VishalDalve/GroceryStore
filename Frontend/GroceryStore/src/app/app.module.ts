@@ -14,6 +14,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './UI/loader/loader.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastmsgService } from 'src/services/toaster/toastmsg.service';
+import { MyCartComponent } from './my-cart/my-cart.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { BaseService } from 'src/services/baseservice/base.service';
 
 
 @NgModule({
@@ -22,7 +27,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MainNavComponent,
     LoginComponent,
     SignupComponent,
-    LoaderComponent
+    LoaderComponent,
+    MyCartComponent,
+    HomePageComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     LocalStorageService,
-    AuthService
+    AuthService,
+    ToastmsgService,
+    BaseService
   ],
   bootstrap: [
     AppComponent

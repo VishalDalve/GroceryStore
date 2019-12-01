@@ -4,6 +4,8 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
+import { BaseService } from '../baseservice/base.service';
+import { API_URLS } from 'src/app/util/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +15,21 @@ export class AuthService {
   private authSubject = new BehaviorSubject(false);
   isLoggedIn = this.authSubject.asObservable();
   baseUrl = environment.baseURL;
-  constructor(private http: HttpClient) { }
+
+  constructor(
+    private baseService: BaseService
+  ) { }
 
 
 
-  postApiCall(api, params): Observable<any> {
-    return this.http.post<any>(this.baseUrl + api, params);
+  login(params: any): Observable<any> {
+    return this.baseService.post(API_URLS.login, params);
+    //return this.http.post<any>(this.baseUrl + api, params);
+  }
+
+  signup(params): Observable<any> {
+    return this.baseService.post(API_URLS.signup, params);
+    //return this.http.post<any>(this.baseUrl + api, params);
   }
 
   private handleError(err: HttpErrorResponse) {

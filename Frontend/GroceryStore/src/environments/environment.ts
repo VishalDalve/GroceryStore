@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseURL: 'https://groceryappa.herokuapp.com/api/v1/'
+  baseURL: 'https://groceryappa.herokuapp.com/'
 };
 
 /*

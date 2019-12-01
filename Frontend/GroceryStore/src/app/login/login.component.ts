@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/services/auth/auth.service';
 import { LocalStorageService } from 'src/services/storage/local-storage.service';
 import { SignupComponent } from '../signup/signup.component';
+import { ToastmsgService } from 'src/services/toaster/toastmsg.service';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public auth: AuthService,
-    private lStorage: LocalStorageService
+    private lStorage: LocalStorageService,
+    private toast: ToastmsgService
   ) { }
 
   ngOnInit() {
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this.loading = true;
-    this.auth.postApiCall('auth/login', {
+    this.auth.login({
       "email": this.userName,
       "password": this.password
     }).subscribe(res => {
@@ -36,14 +38,19 @@ export class LoginComponent implements OnInit {
       this.loading = false;
       this.auth.updateLoginStatus(true);
       this.dialog.closeAll();
+      this.toast.success('You Successfully loggedin! Enjoy shopping');
       // }, 1000);
-    }, error => alert('Something Went Wrong')
+    }, error => {
+      console.log('Err =>', error);
+      this.dialog.closeAll();
+      this.toast.error('Something Went Wrong');
+    }
     );
   }
   onNoClick() {
     this.dialog.closeAll();
     this.dialog.open(SignupComponent, {
-      width: '250px',
+      width: '350px',
       data: { name: 'Signup' }
     });
   }
