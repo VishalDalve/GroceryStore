@@ -424,6 +424,8 @@ class SuperAdminController {
 
         try{
            
+            console.log(req.file);
+            
             //checking Admin ---------
             let user = await UserModel.findOne({ _id: req.loggedInUser.id, role: 'superadmin' });
              
@@ -453,11 +455,11 @@ class SuperAdminController {
             if(!userupdate) {
                 res.status(404).send(Messages.ERROR_404)
             }
-            return res.status(200).json({"message":"Plan Updated Successfully"})
+            return res.status(200).json({"message":"Product Updated Successfully"});
 
             
         } catch (e) {
-            return res.status(500).json({"message":Messages.ERROR_500})
+            return res.status(500).json({"message":Messages.ERROR_500});
         }
       
     }
