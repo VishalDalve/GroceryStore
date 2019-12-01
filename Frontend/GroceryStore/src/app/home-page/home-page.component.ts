@@ -24,7 +24,7 @@ export class HomePageComponent implements OnInit {
     this.loading = true;
     this.productService.getProduct(this.productsParam).subscribe(
       (res: any) => {
-        console.log(res);
+        // console.log(res);
         this.productsList = [...this.productsList, ...res.products];
         this.loading = false;
       },
