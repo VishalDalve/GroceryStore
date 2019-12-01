@@ -1,1 +1,7 @@
 <p>home-page works!</p>
+<div *ngIf="!loading">
+    <app-product-card [item]="item" *ngFor="let item of productsList"></app-product-card>
+</div>
+<div *ngIf="loading" class="loader-wrappper">
+    <app-loader> </app-loader>
+</div>

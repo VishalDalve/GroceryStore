@@ -17,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastmsgService } from 'src/services/toaster/toastmsg.service';
 import { MyCartComponent } from './my-cart/my-cart.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { BaseService } from 'src/services/baseservice/base.service';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     SignupComponent,
     LoaderComponent,
     MyCartComponent,
-    HomePageComponent
+    HomePageComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { HomePageComponent } from './home-page/home-page.component';
   providers: [
     LocalStorageService,
     AuthService,
-    ToastmsgService
+    ToastmsgService,
+    BaseService
   ],
   bootstrap: [
     AppComponent

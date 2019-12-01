@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
     this.loading = true;
     const param = { ...this.signupForm.value }
     delete param.cnfpassword;
-    this.auth.postApiCall('auth/signup', param).subscribe((res) => {
+    this.auth.signup(param).subscribe((res) => {
       console.log(res);
       this.loading = false;
       this.dialog.closeAll();
@@ -48,7 +48,7 @@ export class SignupComponent implements OnInit {
         this.loading = false;
         this.dialog.closeAll();
         console.log('Err =>', error);
-        this.toast.error('Something Went Wrong');
+        this.toast.error(error.error.message);
       });
   }
 

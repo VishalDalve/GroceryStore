@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this.loading = true;
-    this.auth.postApiCall('auth/login', {
+    this.auth.login({
       "email": this.userName,
       "password": this.password
     }).subscribe(res => {
