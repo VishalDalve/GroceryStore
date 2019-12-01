@@ -29,9 +29,9 @@ export default class Routes {
       //  server.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
         //File upload
-        server.app.use('/api/v1/upload', express.Router().post('/', upload.single('file'), (req: any, res, next) => {
-            res.send({'fileName': req.file.filename || ''});
-        }));
+        // server.app.use('/api/v1/upload', express.Router().post('/', upload.single('file'), (req: any, res, next) => {
+        //     res.send({'fileName': req.file.filename || ''});
+        // }));
 
         //images
         server.app.use('/uploads', express.static("uploads"));

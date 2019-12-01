@@ -5,9 +5,6 @@ var userRouter_1 = require("./userRouter");
 var authRouter_1 = require("./authRouter");
 var superadminRouter_1 = require("./superadminRouter");
 var authMiddleware_1 = require("../config/authMiddleware");
-// const swaggerUi = require('swagger-ui-express');
-// const swaggerDocument = require('../swagger-doc/swagger-api-v1.json');
-var fileUpload_1 = require("../service/fileUpload");
 var path = require("path");
 var Routes = /** @class */ (function () {
     function Routes() {
@@ -28,9 +25,9 @@ var Routes = /** @class */ (function () {
         //Swagger API
         //  server.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
         //File upload
-        server.app.use('/api/v1/upload', express.Router().post('/', fileUpload_1.upload.single('file'), function (req, res, next) {
-            res.send({ 'fileName': req.file.filename || '' });
-        }));
+        // server.app.use('/api/v1/upload', express.Router().post('/', upload.single('file'), (req: any, res, next) => {
+        //     res.send({'fileName': req.file.filename || ''});
+        // }));
         //images
         server.app.use('/uploads', express.static("uploads"));
         server.app.use(express.static(path.join(__dirname, "../../Frontend/GroceryStore/", 'dist/GroceryStore')));

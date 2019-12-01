@@ -22,7 +22,7 @@ var SuperAdminRouter = /** @class */ (function () {
         // Product management -----------
         this.router.post('/createProduct', [authMiddleware_1.Auth, fileUpload_1.upload.single('file')], superAdminController_1.default.createProduct);
         this.router.get('/getProduct', superAdminController_1.default.getProduct);
-        this.router.put('/updateProduct', authMiddleware_1.Auth, superAdminController_1.default.updatProduct);
+        this.router.put('/updateProduct', [authMiddleware_1.Auth, fileUpload_1.upload.single('file')], superAdminController_1.default.updatProduct);
         // Category management -----------
         this.router.post('/createCategory', authMiddleware_1.Auth, superAdminController_1.default.createCategory);
         this.router.get('/getCategory', superAdminController_1.default.getCategory);

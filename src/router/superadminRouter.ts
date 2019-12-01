@@ -26,7 +26,7 @@ export default class SuperAdminRouter {
         // Product management -----------
         this.router.post('/createProduct', [Auth, upload.single('file')], SuperAdminController.createProduct);
         this.router.get('/getProduct', SuperAdminController.getProduct);
-        this.router.put('/updateProduct', Auth, SuperAdminController.updatProduct);
+        this.router.put('/updateProduct', [Auth, upload.single('file')], SuperAdminController.updatProduct);
 
         // Category management -----------
         this.router.post('/createCategory', Auth, SuperAdminController.createCategory);

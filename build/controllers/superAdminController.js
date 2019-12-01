@@ -426,6 +426,7 @@ var SuperAdminController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 4, , 5]);
+                        console.log(req.file);
                         return [4 /*yield*/, userModel_1.default.findOne({ _id: req.loggedInUser.id, role: 'superadmin' })];
                     case 1:
                         user = _a.sent();
@@ -437,17 +438,24 @@ var SuperAdminController = /** @class */ (function () {
                         findplan = _a.sent();
                         if (!findplan)
                             res.status(404).send({ "message": message_1.Messages.ERROR_404 });
+                        //for product pic ---------    
+                        if (req.file) {
+                            findplan.productPic = req.file.path;
+                        }
                         // finduser.firstname = req.body.firstname;
-                        findplan.productName = req.body.productName;
-                        findplan.price = req.body.price;
-                        findplan.ourPrice = req.body.ourPrice;
+                        if (req.body.productName)
+                            findplan.productName = req.body.productName;
+                        if (req.body.price)
+                            findplan.price = req.body.price;
+                        if (req.body.ourPrice)
+                            findplan.ourPrice = req.body.ourPrice;
                         return [4 /*yield*/, productModel_1.default.findOneAndUpdate({ _id: req.body.planid }, findplan)];
                     case 3:
                         userupdate = _a.sent();
                         if (!userupdate) {
                             res.status(404).send(message_1.Messages.ERROR_404);
                         }
-                        return [2 /*return*/, res.status(200).json({ "message": "Plan Updated Successfully" })];
+                        return [2 /*return*/, res.status(200).json({ "message": "Product Updated Successfully" })];
                     case 4:
                         e_10 = _a.sent();
                         return [2 /*return*/, res.status(500).json({ "message": message_1.Messages.ERROR_500 })];
