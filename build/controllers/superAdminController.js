@@ -426,6 +426,7 @@ var SuperAdminController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 4, , 5]);
+                        console.log(req.file);
                         return [4 /*yield*/, userModel_1.default.findOne({ _id: req.loggedInUser.id, role: 'superadmin' })];
                     case 1:
                         user = _a.sent();
@@ -454,7 +455,7 @@ var SuperAdminController = /** @class */ (function () {
                         if (!userupdate) {
                             res.status(404).send(message_1.Messages.ERROR_404);
                         }
-                        return [2 /*return*/, res.status(200).json({ "message": "Plan Updated Successfully" })];
+                        return [2 /*return*/, res.status(200).json({ "message": "Product Updated Successfully" })];
                     case 4:
                         e_10 = _a.sent();
                         return [2 /*return*/, res.status(500).json({ "message": message_1.Messages.ERROR_500 })];
