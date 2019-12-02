@@ -448,6 +448,8 @@ class SuperAdminController {
                 findplan.price = req.body.price;
                 if (req.body.ourPrice)
                 findplan.ourPrice = req.body.ourPrice;
+                if (req.body.isDeleted)
+                findplan.isDeleted = req.body.isDeleted;
                 
 
             //Updating user here -------------------
@@ -477,7 +479,7 @@ class SuperAdminController {
             let user = await UserModel.findOne({ _id: req.loggedInUser.id, role: 'superadmin' });
              
             if (!user) {
-                return res.status(404).send({"message":"Unauthorised | Not Found"})
+                return res.status(404).send({"message":"Unauthorised Access"})
             }
 
             //finding User Exist or not ------------
