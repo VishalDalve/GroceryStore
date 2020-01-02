@@ -9,3 +9,10 @@ export const API_URLS = {
     getproduct: 'api/v1/superadmin/getProduct'
 
 }
+
+export const STORAGE = {
+    USER_ROLE: 'userRole',
+    login: 'api/v1/auth/login',
+    getproduct: 'api/v1/superadmin/getProduct'
+
+}

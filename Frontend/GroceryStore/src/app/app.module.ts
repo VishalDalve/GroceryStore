@@ -19,6 +19,7 @@ import { MyCartComponent } from './my-cart/my-cart.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { BaseService } from 'src/services/baseservice/base.service';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { BaseService } from 'src/services/baseservice/base.service';
     LoaderComponent,
     MyCartComponent,
     HomePageComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { LocalStorageService } from 'src/services/storage/local-storage.service';
+
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,10 @@ export class AppComponent {
   isLoggedIn = false;
   userName = '';
 
-  constructor(public dialog: MatDialog) {
+  constructor(
+    public dialog: MatDialog,
+    private lStorage: LocalStorageService,
+  ) {
 
   }
 

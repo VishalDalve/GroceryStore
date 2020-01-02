@@ -6,7 +6,10 @@
       <a mat-list-item (click)="dialogOpened('login');drawer.toggle()" *ngIf="!isLoggedIn">Login</a>
       <a mat-list-item *ngIf="isLoggedIn">Welcome {{userName}}</a>
       <a mat-list-item (click)="dialogOpened('signup');drawer.toggle()" *ngIf="!isLoggedIn">Register / Signup</a>
-      <a mat-list-item [routerLink]="['MyCart']" (click)="drawer.toggle()">MyCart</a>
+      <a mat-list-item *ngIf="isLoggedIn && role !== 'superadmin'" [routerLink]="['MyCart']"
+        (click)="drawer.toggle()">MyCart</a>
+      <a mat-list-item *ngIf="isLoggedIn && role === 'superadmin'" [routerLink]="['AdminDashboard']"
+        (click)="drawer.toggle()">Dasboard</a>
       <a mat-list-item *ngIf="isLoggedIn" (click)="onLogout();drawer.toggle()">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -21,7 +24,8 @@
       <a mat-list-item (click)="dialogOpened('login')" *ngIf="!isLoggedIn">Login</a>
       <a *ngIf="isLoggedIn">Welcome {{userName}}</a>
       <a mat-list-item (click)="dialogOpened('signup')" *ngIf="!isLoggedIn">Register / Signup</a>
-      <a mat-list-item [routerLink]="['MyCart']">MyCart</a>
+      <a mat-list-item *ngIf="isLoggedIn && role !== 'superadmin'" [routerLink]="['MyCart']">MyCart</a>
+      <a mat-list-item *ngIf="isLoggedIn && role === 'superadmin'" [routerLink]="['AdminDashboard']">Dasboard</a>
       <a mat-list-item *ngIf="isLoggedIn" (click)="onLogout()">Logout</a>
     </mat-toolbar>
     <router-outlet></router-outlet>

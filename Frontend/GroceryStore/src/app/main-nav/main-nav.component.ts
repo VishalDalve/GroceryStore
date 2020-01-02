@@ -5,6 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/services/auth/auth.service';
 import { LocalStorageService } from 'src/services/storage/local-storage.service';
 import { ToastmsgService } from 'src/services/toaster/toastmsg.service';
+import { STORAGE } from '../util/constants';
 
 
 @Component({
@@ -34,6 +35,10 @@ export class MainNavComponent {
       this.userName = this.lStorage.getStorageVal('userName');
       console.log(isLoggedIn)
     })
+  }
+
+  public get role(): string {
+    return this.lStorage.getStorageVal(STORAGE.USER_ROLE);
   }
 
   dialogOpened(dialogName: string) {
