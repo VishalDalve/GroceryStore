@@ -6,6 +6,7 @@ import { AuthService } from 'src/services/auth/auth.service';
 import { LocalStorageService } from 'src/services/storage/local-storage.service';
 import { ToastmsgService } from 'src/services/toaster/toastmsg.service';
 import { STORAGE } from '../util/constants';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class MainNavComponent {
     private breakpointObserver: BreakpointObserver,
     public authService: AuthService,
     private lStorage: LocalStorageService,
-    private toast: ToastmsgService
+    private toast: ToastmsgService,
+    private router: Router
   ) {
 
     this.authService.isLoggedIn.subscribe(isLoggedIn => {
@@ -54,6 +56,7 @@ export class MainNavComponent {
     this.authService.updateLoginStatus(false);
     this.lStorage.clearStorage();
     this.toast.success('You successfully loggedout!')
+    this.router.navigate(['']);
   }
 
 
