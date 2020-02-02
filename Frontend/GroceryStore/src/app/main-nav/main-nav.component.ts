@@ -38,7 +38,7 @@ export class MainNavComponent {
       this.userName = this.lStorage.getStorageVal('userName');
       console.log(isLoggedIn)
     })
-    if (this.lStorage.getStorageVal(STORAGE.TOKEN)) {
+    if (this.lStorage.getStorageVal(STORAGE.USER_NAME)) {
       this.isLoggedIn = true;
       this.userName = this.lStorage.getStorageVal(STORAGE.USER_NAME);
     }
