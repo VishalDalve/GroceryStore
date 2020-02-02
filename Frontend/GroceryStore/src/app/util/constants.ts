@@ -12,6 +12,8 @@ export const API_URLS = {
 
 export const STORAGE = {
     USER_ROLE: 'userRole',
+    TOKEN: 'authToken',
+    USER_NAME: 'userName',
     login: 'api/v1/auth/login',
     getproduct: 'api/v1/superadmin/getProduct'
 

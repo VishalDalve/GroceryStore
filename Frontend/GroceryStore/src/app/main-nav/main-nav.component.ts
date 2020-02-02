@@ -30,11 +30,16 @@ export class MainNavComponent {
     private lStorage: LocalStorageService,
     private toast: ToastmsgService
   ) {
+
     this.authService.isLoggedIn.subscribe(isLoggedIn => {
       this.isLoggedIn = isLoggedIn;
       this.userName = this.lStorage.getStorageVal('userName');
       console.log(isLoggedIn)
     })
+    if (this.lStorage.getStorageVal(STORAGE.TOKEN)) {
+      this.isLoggedIn = true;
+      this.userName = this.lStorage.getStorageVal(STORAGE.USER_NAME);
+    }
   }
 
   public get role(): string {
