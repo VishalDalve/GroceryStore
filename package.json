@@ -50,7 +50,7 @@
         "http-errors": "^1.6.3",
         "joi": "^14.0.6",
         "jsonwebtoken": "^8.3.0",
-        "lodash": "^4.17.11",
+        "lodash": "^4.17.21",
         "log4js": "^4.0.2",
         "mongoose": "5.0.0-rc1",
         "morgan": "^1.9.1",
