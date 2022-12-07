@@ -42,7 +42,7 @@
         "crypto-js": "^3.1.9-1",
         "cryptr": "^4.0.1",
         "dotenv": "^4.0.0",
-        "express": "4.16.2",
+        "express": "4.17.3",
         "express-custom-responses": "^1.0.0",
         "express-winston": "^2.5.1",
         "helmet": "3.9.0",
